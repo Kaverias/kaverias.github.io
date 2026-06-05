@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Nexotus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* additional styles for embedded google form */
+    .google-form-embed {
+      width: 100%;
+      height: 800px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      margin-top: 0.5rem;
+    }
+    .contact-info-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .ci-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--muted2);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.3rem;
+    }
+    .ci-value {
+      font-size: 1rem;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .ci-value a {
+      color: var(--red);
+      text-decoration: none;
+    }
+    .ci-value a:hover {
+      text-decoration: underline;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 2.5rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .google-form-embed {
+        height: 700px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="corner-mark tl"></div>
+  <div class="corner-mark tr"></div>
+  <div class="corner-mark bl"></div>
+  <div class="corner-mark br"></div>
+
+  <nav>
+    <a href="index.html" class="nav-logo">NEXOTUS <span class="nav-logo-sep">//</span> OPS</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+       <li><a href="obxiplan.html">OBXIPLAN</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <span class="nav-status">SYSTEM ONLINE</span>
+  </nav>
+
+  <div class="page-wrapper">
+    <section class="section">
+      <div class="container">
+
+        <p class="section-kicker fade-up d1">Get In Touch</p>
+        <h1 class="section-title fade-up d2">Contact</h1>
+        <p class="section-sub fade-up d3">For product enquiries, feedback, or professional collaboration.</p>
+
+        <div class="contact-grid">
+
+          <!-- LEFT: INFO PANEL -->
+          <div class="fade-up d4">
+            <p style="font-family: 'Share Tech Mono', monospace; font-size: 0.6rem; color: var(--muted2); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 1rem;">// operations contact</p>
+
+            <div class="contact-info-card">
+              <p class="ci-label">Email</p>
+              <p class="ci-value"><a>kostikaengine@gmail.com</a></p>
+            </div>
+
+            <div class="contact-info-card">
+              <p class="ci-label">Phone</p>
+              <span class="ci-value" style="color: var(--muted2);">Available upon official request</span>
+            </div>
+
+            <div class="contact-info-card">
+              <p class="ci-label">Network</p>
+              <span class="ci-value" style="color: var(--muted2);">https://github.com/Kaverias</span>
+            </div>
+
+            <div class="contact-info-card">
+              <p class="ci-label">Location</p>
+              <span class="ci-value">Kuching, Sarawak, Malaysia</span>
+            </div>
+
+            <div style="margin-top: 1rem; background: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.2); padding: 1.1rem 1.4rem; position: relative;">
+              <div style="position: absolute; top: 6px; left: 6px; width: 10px; height: 10px; border-top: 1px solid #ef4444; border-left: 1px solid #ef4444;"></div>
+              <p style="font-family: 'Share Tech Mono', monospace; font-size: 0.6rem; color: #ef4444; letter-spacing: 0.1em; margin-bottom: 0.4rem;">// response time</p>
+              <p style="font-size: 0.82rem; color: var(--muted); font-weight: 300; line-height: 1.65;">Typically responds within 1–2 business days. For urgent matters, please use the form beside.</p>
+            </div>
+          </div>
+
+          <!-- RIGHT: GOOGLE FORM EMBED (dengan link betul dari abang) -->
+          <div class="fade-up d5">
+            <p style="font-family: 'Share Tech Mono', monospace; font-size: 0.6rem; color: var(--muted2); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 1rem; padding-left: 0;">// send a message</p>
+            
+            <iframe 
+              src="https://docs.google.com/forms/d/e/1FAIpQLSd9lhhMPs0GyYzWobXl5TjkXd9Y3KFJk0SCfJdxnI0DOfJQ-Q/viewform?embedded=true" 
+              class="google-form-embed" 
+              frameborder="0" 
+              marginheight="0" 
+              marginwidth="0">
+              Loading Google Form…
+            </iframe>
+            
+            <p style="font-family: 'Share Tech Mono', monospace; font-size: 0.6rem; color: var(--muted2); text-align: center; margin-top: 1rem; letter-spacing: 0.06em;">// powered by Google Forms — your data stays private</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-logo">NEXOTUS <span>//</span> OPS</span>
+        <span class="footer-copy">© 2026 NEXOTUS · BUILT IN SARAWAK, MALAYSIA</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

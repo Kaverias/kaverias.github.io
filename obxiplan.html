@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexotus Obxiplan — Critical Path Project Controls</title>
+
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* additional hybrid styles */
+    .hero-hybrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 60px 40px 40px;
+      align-items: center;
+    }
+    .hero-left {
+      text-align: left;
+    }
+    .hero-kicker {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      color: #ef4444;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(42px, 5vw, 68px);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: #110101;
+      margin-bottom: 24px;
+    }
+    .hero-title .slash {
+      color: #ef4444;
+      font-size: 1.2em;
+    }
+    .hero-title .dim {
+      color: #6b7280;
+      font-weight: 500;
+    }
+    .hero-sub {
+      font-size: 16px;
+      color: #0b0d10;
+      line-height: 1.65;
+      margin-bottom: 32px;
+      max-width: 90%;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-red {
+      background: #ef4444;
+      color: white;
+      padding: 10px 26px;
+      border-radius: 4px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-red:hover {
+      background: #dc2626;
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #1e2642;
+      color: #030508;
+      padding: 10px 24px;
+      border-radius: 4px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: 0.2s;
+      display: inline-block;
+    }
+    .btn-outline:hover {
+      border-color: #ef4444;
+      color: #ef4444;
+    }
+    .hero-right {
+      background: #0f1424;
+      border: 1px solid #1e2642;
+      border-radius: 8px;
+      padding: 28px;
+    }
+    .hero-stat-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      color: #6b7280;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .stat-item {
+      text-align: center;
+      padding: 16px;
+      border-right: 1px solid #1e2642;
+    }
+    .stat-item:last-child {
+      border-right: none;
+    }
+    .stat-val {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    .stat-val span {
+      color: #ef4444;
+      font-size: 20px;
+    }
+    .stat-lbl {
+      font-size: 9px;
+      color: #9ca3af;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .stat-item.active .stat-val {
+      color: #ef4444;
+    }
+    .screenshot-wrap {
+      max-width: 960px;
+      margin: 0 auto 80px;
+      padding: 0 40px;
+    }
+    .screenshot-frame {
+      background: #0f1424;
+      border: 1px solid #1e2642;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .frame-bar {
+      background: #05070f;
+      padding: 12px 16px;
+      border-bottom: 1px solid #1e2642;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .frame-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+    .frame-dot.red { background: #ef4444; }
+    .frame-dot.yellow { background: #f59e0b; }
+    .frame-dot.green { background: #10b981; }
+    .frame-title {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      color: #6b7280;
+      margin-left: 8px;
+    }
+    .screenshot-placeholder {
+      height: 380px;
+      background: linear-gradient(145deg, #0a0e1a 0%, #111827 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+    }
+    .placeholder-icon {
+      background: #0f1424;
+      border: 1px solid #1e2642;
+      border-radius: 12px;
+      padding: 14px;
+    }
+    .placeholder-icon svg { width: 32px; height: 32px; stroke: #3b82f6; fill: none; stroke-width: 1.5; }
+    .placeholder-text { text-align: center; font-size: 12px; color: #6b7280; }
+    .placeholder-text strong { display: block; color: #e5e7eb; margin-bottom: 6px; font-weight: 500; }
+    .placeholder-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      background: #111827;
+      border: 1px solid #1e2642;
+      padding: 4px 12px;
+      border-radius: 20px;
+      color: #3b82f6;
+    }
+    .stats-row-landing {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 960px;
+      margin: 0 auto 80px;
+      padding: 0 40px;
+    }
+    .stat-card-landing {
+      background: #0f1424;
+      border: 1px solid #1e2642;
+      border-radius: 6px;
+      padding: 24px 16px;
+      text-align: center;
+    }
+    .stat-number-landing {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    .stat-number-landing span { color: #ef4444; }
+    .stat-label-landing {
+      font-size: 11px;
+      color: #9ca3af;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .features-grid-landing {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 960px;
+      margin: 0 auto 80px;
+      padding: 0 40px;
+    }
+    .feature-card-landing {
+      background: #0f1424;
+      border: 1px solid #1e2642;
+      border-radius: 8px;
+      padding: 24px 20px;
+      transition: all 0.2s;
+    }
+    .feature-card-landing:hover { border-color: #ef4444; transform: translateY(-3px); }
+    .feature-icon-landing {
+      background: #0a0e1a;
+      border-radius: 8px;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      border: 1px solid #1e2642;
+    }
+    .feature-icon-landing svg { width: 20px; height: 20px; stroke: #ef4444; fill: none; stroke-width: 1.6; }
+    .feature-title-landing {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: white;
+    }
+    .feature-desc-landing {
+      font-size: 13px;
+      color: #9ca3af;
+      line-height: 1.5;
+    }
+    .highlight-landing {
+      max-width: 960px;
+      margin: 0 auto 80px;
+      padding: 0 40px;
+    }
+    .highlight-inner {
+      background: #0f1424;
+      border: 1px solid #1e2642;
+      border-radius: 10px;
+      padding: 42px 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .cpm-visual-landing {
+      background: #05070f;
+      border-radius: 8px;
+      padding: 20px;
+      border: 1px solid #1e2642;
+    }
+    .cpm-header-landing {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px;
+      color: #6b7280;
+      margin-bottom: 16px;
+    }
+    .node-box-landing {
+      background: #0a0e1a;
+      border: 1px solid #2d3748;
+      border-radius: 4px;
+      padding: 6px 14px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      color: #cbd5e1;
+      display: inline-block;
+    }
+    .node-box-landing.critical { border-color: #ef4444; color: #fca5a5; background: #1c0a0a; }
+    .node-box-landing.complete { border-color: #10b981; color: #6ee7b7; }
+    .compare-wrap-landing {
+      max-width: 960px;
+      margin: 0 auto 80px;
+      padding: 0 40px;
+    }
+    .compare-inner {
+      background: #0f1424;
+      border: 1px solid #1e2642;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    .check { color: #10b981; font-weight: bold; }
+    .cross { color: #4b5563; }
+    .cta-section-landing {
+      max-width: 960px;
+      margin: 0 auto 80px;
+      padding: 0 40px;
+    }
+    .cta-inner {
+      background: #0f1424;
+      border: 1px solid #1e2642;
+      border-radius: 12px;
+      padding: 56px 48px;
+      text-align: center;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    thead th {
+      background: #05070f;
+      padding: 14px 18px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: #9ca3af;
+      border-bottom: 1px solid #1e2642;
+      text-align: left;
+    }
+    tbody td {
+      padding: 12px 18px;
+      border-bottom: 1px solid #1e2642;
+      color: #d0d4e0;
+    }
+    tbody tr:hover td { background-color: #0f1424; }
+    @media (max-width: 900px) {
+      .hero-hybrid { grid-template-columns: 1fr; padding: 40px 20px; gap: 32px; }
+      .hero-sub { max-width: 100%; }
+      .features-grid-landing { grid-template-columns: 1fr; }
+      .highlight-inner { grid-template-columns: 1fr; padding: 28px; }
+      .stats-row-landing { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .screenshot-wrap { padding: 0 20px; }
+      .stats-row-landing { padding: 0 20px; }
+      .features-grid-landing { padding: 0 20px; }
+      .highlight-landing { padding: 0 20px; }
+      .compare-wrap-landing { padding: 0 20px; }
+      .cta-section-landing { padding: 0 20px; }
+      .cta-inner { padding: 32px 24px; }
+      .stat-row { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Corner marks -->
+  <div class="corner-mark tl"></div>
+  <div class="corner-mark tr"></div>
+  <div class="corner-mark bl"></div>
+  <div class="corner-mark br"></div>
+
+  <!-- Navbar Nexotus style -->
+  <nav>
+    <a href="index.html" class="nav-logo">NEXOTUS <span class="nav-logo-sep">//</span> OPS</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="obxiplan.html" class="active">Obxiplan</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <span class="nav-status">SYSTEM ONLINE</span>
+  </nav>
+
+  <!-- HERO HYBRID (split layout dari deepseek file) -->  ///TITLE PAKE OBXIPLAN
+  <div class="hero-hybrid">
+    <div class="hero-left">
+      <p class="hero-kicker fade-up d1">Nexotus Obxiplan · Project Controls</p>
+      <h1 class="hero-title fade-up d2">
+        <span style="color: #000000;">OBXI</span><span style="color: #dd0a0a;">PLAN</span>
+        <span class="slash">//</span><br>
+        <span class="dim">built for</span><br>
+        consultants & contractors.
+      </h1>
+      <p class="hero-sub fade-up d3">
+        Enterprise-grade scheduling, cost tracking, and CPM analysis — without the enterprise price tag. Offline-first, no subscriptions, no cloud lock-in.
+      </p>
+      <div class="hero-cta fade-up d4">
+        <a href="#cta" class="btn-red">Request Demo →</a>
+        <a href="#features" class="btn-outline">Explore Features</a>
+      </div>
+    </div>
+    <div class="hero-right fade-up d4">
+      <p class="hero-stat-label">// critical path status</p>
+      <div class="stat-row">
+        <div class="stat-item active">
+          <div class="stat-val">CPM<span>+</span></div>
+          <div class="stat-lbl">CRITICAL PATH ENGINE</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-val">WBS</div>
+          <div class="stat-lbl">FULL HIERARCHY</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-val">0<span>kb</span></div>
+          <div class="stat-lbl">DATA TO CLOUD</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-val">100<span>%</span></div>
+          <div class="stat-lbl">OFFLINE CAPABLE</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREENSHOT FRAME (dari product page) -->
+  <div class="screenshot-wrap">
+    <div class="screenshot-frame">
+      <div class="frame-bar">
+        <div class="frame-dot red"></div>
+        <div class="frame-dot yellow"></div>
+        <div class="frame-dot green"></div>
+        <span class="frame-title">Nexotus Obxiplan — Project Dashboard</span>
+      </div>
+      <div class="screenshot-placeholder">
+        <div class="placeholder-icon">
+        </div>
+        <span class="placeholder-label"><img src="\assets\obxiplanimage.png" alt="Obxiplan Screenshot" style="width:100%; height:100%; object-fit:cover;"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS ROW (dari product page) -->
+  <div class="stats-row-landing">
+    <div class="stat-card-landing">
+      <div class="stat-number-landing">WBS<span>+</span></div>
+      <div class="stat-label-landing">Full hierarchy with parent-child tasks</div>
+    </div>
+    <div class="stat-card-landing">
+      <div class="stat-number-landing"><span>CPM</span></div>
+      <div class="stat-label-landing">Critical Path Method engine built-in</div>
+    </div>
+    <div class="stat-card-landing">
+      <div class="stat-number-landing">XML<span>↗</span></div>
+      <div class="stat-label-landing">MS Project export compatible</div>
+    </div>
+    <div class="stat-card-landing">
+      <div class="stat-number-landing"><span>0</span> RM</div>
+      <div class="stat-label-landing">No per-user license fees to start</div>
+    </div>
+  </div>
+
+  <!-- FEATURES SECTION -->
+  <section id="features" style="max-width: 960px; margin: 0 auto 40px; padding: 0 40px;">
+    <p style="font-family: 'Share Tech Mono', monospace; font-size: 25px; color: #ef4444; margin-bottom: 12px; font-weight: 800; text-align: center;">[  CORE FEATURES  ]</p>
+    <h2 style="font-family: 'Barlow Condensed', sans-serif; font-size: clamp(28px, 4vw, 38px); font-weight: 800; text-align: center; color: rgb(11, 11, 11); margin-bottom: 16px;">Everything a project professional needs</h2>
+    <p style="font-size: 15px; color: #484a4e; text-align: center; max-width: 560px; margin: 0 auto 48px;">Built from the ground up for real project workflows — not adapted from generic task managers.</p>
+  </section>
+
+  <div class="features-grid-landing">
+    <div class="feature-card-landing">
+      <div class="feature-icon-landing"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+      <div class="feature-title-landing">Gantt Chart</div>
+      <div class="feature-desc-landing">Visual timeline with drag-to-reschedule. Real-time sync with your task data.</div>
+    </div>
+    <div class="feature-card-landing">
+      <div class="feature-icon-landing"><svg viewBox="0 0 24 24"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg></div>
+      <div class="feature-title-landing">CPM Engine</div>
+      <div class="feature-desc-landing">Auto-calculate critical path, early/late start, total float — no manual input.</div>
+    </div>
+    <div class="feature-card-landing">
+      <div class="feature-icon-landing"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+      <div class="feature-title-landing">Cost Tracking</div>
+      <div class="feature-desc-landing">Budget vs actual with variance indicators. WBS cost rollup from subtasks.</div>
+    </div>
+    <div class="feature-card-landing">
+      <div class="feature-icon-landing"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+      <div class="feature-title-landing">WBS Hierarchy</div>
+      <div class="feature-desc-landing">Full parent-child task structure. Collapse and expand branches for cleaner view.</div>
+    </div>
+    <div class="feature-card-landing">
+      <div class="feature-icon-landing"><svg viewBox="0 0 24 24"><polyline points="8 17 12 21 16 17"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"/></svg></div>
+      <div class="feature-title-landing">Backup & Restore</div>
+      <div class="feature-desc-landing">Save your project as .nxp file. Restore anytime. Your data stays local.</div>
+    </div>
+    <div class="feature-card-landing">
+      <div class="feature-icon-landing"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+      <div class="feature-title-landing">MS Project Export</div>
+      <div class="feature-desc-landing">Export to XML for seamless handoff to clients or teams using MS Project.</div>
+    </div>
+  </div>
+
+  <!-- CPM HIGHLIGHT -->
+  <div class="highlight-landing">
+    <div class="highlight-inner">
+      <div>
+        <span style="font-family: 'Share Tech Mono', monospace; font-size: 10px; background: #111827; padding: 4px 12px; border-radius: 3px; color: #ef4444; display: inline-block; margin-bottom: 16px;">SCHEDULING ENGINE</span>
+        <h3 style="font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 800; color: white; margin-bottom: 14px;">Critical Path Method — built in, not bolted on</h3>
+        <p style="font-size: 14px; color: #9ca3af; line-height: 1.7; margin-bottom: 24px;">Most tools show you a Gantt. Obxiplan tells you which tasks will sink your project if they slip — automatically, every time you update.</p>
+        
+        
+        <ul style="list-style: none;">
+          <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 8px;"><span style="color: #10b981;">✓</span> <span style="color: #ecefee;">Topological sort with circular dependency detection</span></li>
+          <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 8px;"><span style="color: #10b981;">✓</span> <span style="color: #ecefee;">Forward & backward pass calculation</span> </li>
+          <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 8px;"><span style="color: #10b981;">✓</span> <span style="color: #ecefee;">Total float & critical path identification</span></li>
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #10b981;">✓</span> <span style="color: #ecefee;">Auto-updates on every task change</span></li>
+        </ul>
+
+
+
+
+      </div>
+      <div class="cpm-visual-landing">
+        <div class="cpm-header-landing">// CRITICAL PATH ANALYSIS</div>
+        <div style="margin-bottom: 12px;">
+          <div class="node-box-landing complete">NX-01 · Regulatory Submission</div>
+          <span style="font-size: 9px; color: #6b7280; margin-left: 8px;">ES: Day 1 · Float: 0</span>
+        </div>
+        <div style="margin-bottom: 12px; margin-left: 16px;">
+          <div class="node-box-landing critical">NX-03 · Zoning Layouts</div>
+          <span style="font-size: 9px; color: #ef4444; margin-left: 8px;">CRITICAL</span>
+        </div>
+        <div style="margin-left: 32px;">
+          <div class="node-box-landing critical">NX-04 · Infrastructure</div>
+          <span style="font-size: 9px; color: #ef4444; margin-left: 8px;">CRITICAL · Float: 0</span>
+        </div>
+        <div style="margin-top: 20px; display: flex; gap: 16px;">
+          <span style="font-size: 9px; display: flex; align-items: center; gap: 4px;"><span style="width: 8px; height: 8px; background: #10b981; display: inline-block;"></span> Complete</span>
+          <span style="font-size: 9px; display: flex; align-items: center; gap: 4px;"><span style="width: 8px; height: 8px; background: #ef4444; display: inline-block;"></span> Critical Path</span>
+          <span style="font-size: 9px; display: flex; align-items: center; gap: 4px;"><span style="width: 8px; height: 8px; background: #334155; display: inline-block;"></span> Normal</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPARISON TABLE -->
+  <div class="compare-wrap-landing">
+    <div class="compare-inner">
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th style="color: #ef4444;">Nexotus Obxiplan</th>
+            <th>MS Project</th>
+            <th>Primavera P6</th>
+            <th>Excel</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>WBS Hierarchy</td><td style="color: #ef4444;"><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="cross">—</span></td></tr>
+          <tr><td>CPM / Critical Path</td><td style="color: #ef4444;"><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="cross">—</span></td></tr>
+          <tr><td>Gantt Chart</td><td style="color: #ef4444;"><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="cross">Manual</span></td></tr>
+          <tr><td>Cost Variance Tracking</td><td style="color: #ef4444;"><span class="check">✓</span></td><td><span class="cross">Limited</span></td><td><span class="check">✓</span></td><td><span class="cross">Manual</span></td></tr>
+          <tr><td>Consultant Toolkit</td><td style="color: #ef4444;"><span class="check">✓ Coming</span></td><td><span class="cross">—</span></td><td><span class="cross">—</span></td><td><span class="cross">—</span></td></tr>
+          <tr><td>MS Project Export</td><td style="color: #ef4444;"><span class="check">✓</span></td><td><span class="check">Native</span></td><td><span class="cross">Limited</span></td><td><span class="cross">—</span></td></tr>
+          <tr><td>Local Data (No Cloud)</td><td style="color: #ef4444;"><span class="check">✓</span></td><td><span class="cross">Optional</span></td><td><span class="cross">—</span></td><td><span class="check">✓</span></td></tr>
+          <tr><td>Annual License Cost</td><td style="color: #10b981; font-weight: 600;">FREE/TBD</td><td>~RM 1,500/yr</td><td>~RM 20,000+</td><td>~RM 600/yr</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- CTA SECTION -->
+  <div class="cta-section-landing" id="cta">
+    <div class="cta-inner">
+      <h2 style="font-family: 'Barlow Condensed', sans-serif; font-size: 32px; font-weight: 800; color: white; margin-bottom: 12px;">Built for the ground level.<br>Ready for the boardroom.</h2>
+      <p style="font-size: 15px; color: #9ca3af; margin-bottom: 28px;">Be among the first to try Nexotus Obxiplan — currently in active development.</p>
+      <a href="mailto:amaljerry95@gmail.com" class="btn-red" style="display: inline-flex; align-items: center; gap: 8px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+        Request Early Access
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container" style="max-width: 1280px; margin: 0 auto; padding: 0 24px;">
+      <div class="footer-inner">
+        <span class="footer-logo">NEXOTUS <span>//</span> OBXIPLAN</span>
+        <span class="footer-copy">v3.0-beta · Kuching, Sarawak · 2026</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
