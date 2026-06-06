@@ -18,7 +18,8 @@
 
    <nav>
     <a href="index.html" class="nav-logo">NEXOTUS <span class="nav-logo-sep">//</span> OPS</a>
-    <ul class="nav-links">
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
       <li><a href="index.html" >Home</a></li>
       <li><a href="products.html" class="active">Products</a></li>
         <li><a href="obxiplan.html">OBXIPLAN</a></li>
@@ -105,5 +106,11 @@
     </div>
   </footer>
 
+<script>
+  const toggle = document.getElementById("navToggle");
+  const links = document.getElementById("navLinks");
+  toggle.addEventListener("click", () => { toggle.classList.toggle("open"); links.classList.toggle("open"); });
+  links.querySelectorAll("a").forEach(a => { a.addEventListener("click", () => { toggle.classList.remove("open"); links.classList.remove("open"); }); });
+</script>
 </body>
 </html>
