@@ -1,15 +1,16 @@
+Here is the revised HTML with the complementary positioning applied. I have removed the competitive comparison table, softened the claims, and added the "How Obxiplan fits with your workflow" table as requested.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nexotus Obxiplan — Critical Path Project Controls</title>
+  <title>Obxiplan — Straightforward Project Controls</title>
 
-  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
   <style>
     /* additional hybrid styles */
     .hero-hybrid {
@@ -181,31 +182,16 @@
       margin-left: 8px;
     }
     .screenshot-placeholder {
-      height: 380px;
-      background: linear-gradient(145deg, #0a0e1a 0%, #111827 100%);
+      background: #0a0e1a;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 18px;
+      min-height: 280px;
     }
-    .placeholder-icon {
-      background: #0f1424;
-      border: 1px solid #1e2642;
-      border-radius: 12px;
-      padding: 14px;
-    }
-    .placeholder-icon svg { width: 32px; height: 32px; stroke: #3b82f6; fill: none; stroke-width: 1.5; }
-    .placeholder-text { text-align: center; font-size: 12px; color: #6b7280; }
-    .placeholder-text strong { display: block; color: #e5e7eb; margin-bottom: 6px; font-weight: 500; }
-    .placeholder-label {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 10px;
-      background: #111827;
-      border: 1px solid #1e2642;
-      padding: 4px 12px;
-      border-radius: 20px;
-      color: #3b82f6;
+    .screenshot-placeholder img {
+      max-width: 100%;
+      height: auto;
+      display: block;
     }
     .stats-row-landing {
       display: grid;
@@ -328,6 +314,46 @@
     }
     .check { color: #10b981; font-weight: bold; }
     .cross { color: #4b5563; }
+    .complementary-table {
+      background: #0f1424;
+      border: 1px solid #1e2642;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+    .complementary-table h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: white;
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+    .complementary-table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .complementary-table th {
+      text-align: left;
+      padding: 0.75rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      color: #9ca3af;
+      border-bottom: 1px solid #1e2642;
+    }
+    .complementary-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid #1e2642;
+      color: #d0d4e0;
+      font-size: 13px;
+    }
+    .complementary-table .table-footer {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: #6b7280;
+      font-style: italic;
+      font-family: 'Barlow', sans-serif;
+    }
     .cta-section-landing {
       max-width: 960px;
       margin: 0 auto 80px;
@@ -375,59 +401,106 @@
       .cta-section-landing { padding: 0 20px; }
       .cta-inner { padding: 32px 24px; }
       .stat-row { grid-template-columns: repeat(2, 1fr); }
+      .complementary-table th, .complementary-table td { padding: 0.5rem; }
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border-top: 1px solid #1e2642;
+      padding: 2rem 0;
+      margin-top: 2rem;
+    }
+    .footer-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #ef4444;
+    }
+    .footer-copy {
+      font-size: 11px;
+      color: #6b7280;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #1e2642;
+      background: #ffffff;
+    }
+    .nav-logo {
+      font-weight: 800;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.4rem;
+      text-decoration: none;
+      color: #000;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+    .nav-status {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.7rem;
+      color: #10b981;
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Corner marks -->
-  <div class="corner-mark tl"></div>
-  <div class="corner-mark tr"></div>
-  <div class="corner-mark bl"></div>
-  <div class="corner-mark br"></div>
-
-  <!-- Navbar Nexotus style -->
+  <!-- Navbar -->
   <nav>
-    <a href="index.html" class="nav-logo">NEXOTUS <span class="nav-logo-sep">//</span> OPS</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="products.html">Products</a></li>
-      <li><a href="obxiplan.html" class="active">Obxiplan</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
+    <a href="#" class="nav-logo">NEXOTUS <span style="color:#ef4444">//</span> OPS</a>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#" style="color:#ef4444">Obxiplan</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
     </ul>
-    <span class="nav-status">SYSTEM ONLINE</span>
+    <span class="nav-status">OFFLINE • READY</span>
   </nav>
 
-  <!-- HERO HYBRID (split layout dari deepseek file) -->  ///TITLE PAKE OBXIPLAN
+  <!-- HERO SECTION (HUMBLE & HONEST) -->
   <div class="hero-hybrid">
     <div class="hero-left">
-      <p class="hero-kicker fade-up d1">Nexotus Obxiplan · Project Controls</p>
+      <p class="hero-kicker fade-up d1">Obxiplan · Project Controls</p>
       <h1 class="hero-title fade-up d2">
         <span style="color: #000000;">OBXI</span><span style="color: #dd0a0a;">PLAN</span>
         <span class="slash">//</span><br>
-        <span class="dim">built for</span><br>
-        consultants & contractors.
+        <span class="dim">straightforward scheduling</span><br>
+        for consultants & contractors.
       </h1>
       <p class="hero-sub fade-up d3">
-        Enterprise-grade scheduling, cost tracking, and CPM analysis — without the enterprise price tag. Offline-first, no subscriptions, no cloud lock-in.
+        Simple scheduling, cost tracking, and CPM basics — offline-first, no subscriptions, your data stays local.
       </p>
       <div class="hero-cta fade-up d4">
-        <a href="#cta" class="btn-red">Request Demo →</a>
+        <a href="#cta" class="btn-red">Request Early Access →</a>
         <a href="#features" class="btn-outline">Explore Features</a>
       </div>
     </div>
     <div class="hero-right fade-up d4">
-      <p class="hero-stat-label">// critical path status</p>
+      <p class="hero-stat-label">// capabilities</p>
       <div class="stat-row">
         <div class="stat-item active">
           <div class="stat-val">CPM<span>+</span></div>
-          <div class="stat-lbl">CRITICAL PATH ENGINE</div>
+          <div class="stat-lbl">BASIC CRITICAL PATH</div>
         </div>
         <div class="stat-item">
           <div class="stat-val">WBS</div>
-          <div class="stat-lbl">FULL HIERARCHY</div>
+          <div class="stat-lbl">TASK HIERARCHY</div>
         </div>
         <div class="stat-item">
           <div class="stat-val">0<span>kb</span></div>
@@ -441,158 +514,96 @@
     </div>
   </div>
 
-  <!-- SCREENSHOT FRAME (dari product page) -->
+  <!-- SCREENSHOT -->
   <div class="screenshot-wrap">
     <div class="screenshot-frame">
       <div class="frame-bar">
         <div class="frame-dot red"></div>
         <div class="frame-dot yellow"></div>
         <div class="frame-dot green"></div>
-        <span class="frame-title">Nexotus Obxiplan — Project Dashboard</span>
+        <span class="frame-title">Obxiplan — Project Dashboard</span>
       </div>
       <div class="screenshot-placeholder">
-        <div class="placeholder-icon">
-        </div>
-        <span class="placeholder-label"><img src="\assets\obxiplanimage.png" alt="Obxiplan Screenshot" style="width:100%; height:100%; object-fit:cover;"></span>
+        <img src="assets/obxiplanimage.png" alt="Obxiplan Dashboard Screenshot" style="width:100%; height:auto; display:block;">
       </div>
     </div>
   </div>
 
-  <!-- STATS ROW (dari product page) -->
+  <!-- STATS -->
   <div class="stats-row-landing">
-    <div class="stat-card-landing">
-      <div class="stat-number-landing">WBS<span>+</span></div>
-      <div class="stat-label-landing">Full hierarchy with parent-child tasks</div>
-    </div>
-    <div class="stat-card-landing">
-      <div class="stat-number-landing"><span>CPM</span></div>
-      <div class="stat-label-landing">Critical Path Method engine built-in</div>
-    </div>
-    <div class="stat-card-landing">
-      <div class="stat-number-landing">XML<span>↗</span></div>
-      <div class="stat-label-landing">MS Project export compatible</div>
-    </div>
-    <div class="stat-card-landing">
-      <div class="stat-number-landing"><span>0</span> RM</div>
-      <div class="stat-label-landing">No per-user license fees to start</div>
-    </div>
+    <div class="stat-card-landing"><div class="stat-number-landing">WBS<span>+</span></div><div class="stat-label-landing">Parent-child tasks</div></div>
+    <div class="stat-card-landing"><div class="stat-number-landing"><span>CPM</span></div><div class="stat-label-landing">Critical path view</div></div>
+    <div class="stat-card-landing"><div class="stat-number-landing">XML<span>↗</span></div><div class="stat-label-landing">Export / import</div></div>
+    <div class="stat-card-landing"><div class="stat-number-landing"><span>0</span> RM</div><div class="stat-label-landing">No license fees</div></div>
   </div>
 
   <!-- FEATURES SECTION -->
   <section id="features" style="max-width: 960px; margin: 0 auto 40px; padding: 0 40px;">
     <p style="font-family: 'Share Tech Mono', monospace; font-size: 25px; color: #ef4444; margin-bottom: 12px; font-weight: 800; text-align: center;">[  CORE FEATURES  ]</p>
-    <h2 style="font-family: 'Barlow Condensed', sans-serif; font-size: clamp(28px, 4vw, 38px); font-weight: 800; text-align: center; color: rgb(11, 11, 11); margin-bottom: 16px;">Everything a project professional needs</h2>
-    <p style="font-size: 15px; color: #484a4e; text-align: center; max-width: 560px; margin: 0 auto 48px;">Built from the ground up for real project workflows — not adapted from generic task managers.</p>
+    <h2 style="font-family: 'Barlow Condensed', sans-serif; font-size: clamp(28px, 4vw, 38px); font-weight: 800; text-align: center; color: rgb(11, 11, 11); margin-bottom: 16px;">Everything you need to stay on track</h2>
+    <p style="font-size: 15px; color: #484a4e; text-align: center; max-width: 560px; margin: 0 auto 48px;">Built for real project workflows — not generic task managers.</p>
   </section>
 
   <div class="features-grid-landing">
-    <div class="feature-card-landing">
-      <div class="feature-icon-landing"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-      <div class="feature-title-landing">Gantt Chart</div>
-      <div class="feature-desc-landing">Visual timeline with drag-to-reschedule. Real-time sync with your task data.</div>
-    </div>
-    <div class="feature-card-landing">
-      <div class="feature-icon-landing"><svg viewBox="0 0 24 24"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg></div>
-      <div class="feature-title-landing">CPM Engine</div>
-      <div class="feature-desc-landing">Auto-calculate critical path, early/late start, total float — no manual input.</div>
-    </div>
-    <div class="feature-card-landing">
-      <div class="feature-icon-landing"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-      <div class="feature-title-landing">Cost Tracking</div>
-      <div class="feature-desc-landing">Budget vs actual with variance indicators. WBS cost rollup from subtasks.</div>
-    </div>
-    <div class="feature-card-landing">
-      <div class="feature-icon-landing"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-      <div class="feature-title-landing">WBS Hierarchy</div>
-      <div class="feature-desc-landing">Full parent-child task structure. Collapse and expand branches for cleaner view.</div>
-    </div>
-    <div class="feature-card-landing">
-      <div class="feature-icon-landing"><svg viewBox="0 0 24 24"><polyline points="8 17 12 21 16 17"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"/></svg></div>
-      <div class="feature-title-landing">Backup & Restore</div>
-      <div class="feature-desc-landing">Save your project as .nxp file. Restore anytime. Your data stays local.</div>
-    </div>
-    <div class="feature-card-landing">
-      <div class="feature-icon-landing"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-      <div class="feature-title-landing">MS Project Export</div>
-      <div class="feature-desc-landing">Export to XML for seamless handoff to clients or teams using MS Project.</div>
-    </div>
+    <div class="feature-card-landing"><div class="feature-icon-landing"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><div class="feature-title-landing">Gantt Chart</div><div class="feature-desc-landing">Visual timeline, drag to adjust dates. Syncs with your task data.</div></div>
+    <div class="feature-card-landing"><div class="feature-icon-landing"><svg viewBox="0 0 24 24"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg></div><div class="feature-title-landing">CPM Basics</div><div class="feature-desc-landing">Shows task timing and highlights potential critical path automatically.</div></div>
+    <div class="feature-card-landing"><div class="feature-icon-landing"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="feature-title-landing">Cost Tracking</div><div class="feature-desc-landing">Budget vs actual with variance. Costs roll up from subtasks.</div></div>
+    <div class="feature-card-landing"><div class="feature-icon-landing"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div class="feature-title-landing">WBS Hierarchy</div><div class="feature-desc-landing">Full parent-child structure. Collapse branches for cleaner view.</div></div>
+    <div class="feature-card-landing"><div class="feature-icon-landing"><svg viewBox="0 0 24 24"><polyline points="8 17 12 21 16 17"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"/></svg></div><div class="feature-title-landing">Backup & Restore</div><div class="feature-desc-landing">Save as .nxp file. Restore anytime. Your data stays local.</div></div>
+    <div class="feature-card-landing"><div class="feature-icon-landing"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="feature-title-landing">XML Exchange</div><div class="feature-desc-landing">Import/export XML to work with common scheduling tools.</div></div>
   </div>
 
-  <!-- CPM HIGHLIGHT -->
+  <!-- CPM HIGHLIGHT (TONED DOWN) -->
   <div class="highlight-landing">
     <div class="highlight-inner">
       <div>
         <span style="font-family: 'Share Tech Mono', monospace; font-size: 10px; background: #111827; padding: 4px 12px; border-radius: 3px; color: #ef4444; display: inline-block; margin-bottom: 16px;">SCHEDULING ENGINE</span>
-        <h3 style="font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 800; color: white; margin-bottom: 14px;">Critical Path Method — built in, not bolted on</h3>
-        <p style="font-size: 14px; color: #9ca3af; line-height: 1.7; margin-bottom: 24px;">Most tools show you a Gantt. Obxiplan tells you which tasks will sink your project if they slip — automatically, every time you update.</p>
-        
-        
+        <h3 style="font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 800; color: white; margin-bottom: 14px;">Critical path visibility — built in</h3>
+        <p style="font-size: 14px; color: #9ca3af; line-height: 1.7; margin-bottom: 24px;">See which tasks drive your finish date. Obxiplan calculates early/late dates and flags critical tasks automatically as you update.</p>
         <ul style="list-style: none;">
-          <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 8px;"><span style="color: #10b981;">✓</span> <span style="color: #ecefee;">Topological sort with circular dependency detection</span></li>
-          <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 8px;"><span style="color: #10b981;">✓</span> <span style="color: #ecefee;">Forward & backward pass calculation</span> </li>
-          <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 8px;"><span style="color: #10b981;">✓</span> <span style="color: #ecefee;">Total float & critical path identification</span></li>
-          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #10b981;">✓</span> <span style="color: #ecefee;">Auto-updates on every task change</span></li>
+          <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 8px;"><span style="color: #10b981;">✓</span> <span style="color: #ecefee;">Circular dependency detection</span></li>
+          <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 8px;"><span style="color: #10b981;">✓</span> <span style="color: #ecefee;">Forward & backward pass</span> </li>
+          <li style="margin-bottom: 10px; display: flex; align-items: center; gap: 8px;"><span style="color: #10b981;">✓</span> <span style="color: #ecefee;">Total float & critical path</span></li>
+          <li style="display: flex; align-items: center; gap: 8px;"><span style="color: #10b981;">✓</span> <span style="color: #ecefee;">Recalculates on every change</span></li>
         </ul>
-
-
-
-
       </div>
       <div class="cpm-visual-landing">
-        <div class="cpm-header-landing">// CRITICAL PATH ANALYSIS</div>
-        <div style="margin-bottom: 12px;">
-          <div class="node-box-landing complete">NX-01 · Regulatory Submission</div>
-          <span style="font-size: 9px; color: #6b7280; margin-left: 8px;">ES: Day 1 · Float: 0</span>
-        </div>
-        <div style="margin-bottom: 12px; margin-left: 16px;">
-          <div class="node-box-landing critical">NX-03 · Zoning Layouts</div>
-          <span style="font-size: 9px; color: #ef4444; margin-left: 8px;">CRITICAL</span>
-        </div>
-        <div style="margin-left: 32px;">
-          <div class="node-box-landing critical">NX-04 · Infrastructure</div>
-          <span style="font-size: 9px; color: #ef4444; margin-left: 8px;">CRITICAL · Float: 0</span>
-        </div>
+        <div class="cpm-header-landing">// CRITICAL PATH EXAMPLE</div>
+        <div style="margin-bottom: 12px;"><div class="node-box-landing complete">NX-01 · Submission</div><span style="font-size: 9px; color: #6b7280; margin-left: 8px;">Float: 0</span></div>
+        <div style="margin-bottom: 12px; margin-left: 16px;"><div class="node-box-landing critical">NX-03 · Zoning</div><span style="font-size: 9px; color: #ef4444; margin-left: 8px;">Critical</span></div>
+        <div style="margin-left: 32px;"><div class="node-box-landing critical">NX-04 · Infrastructure</div><span style="font-size: 9px; color: #ef4444; margin-left: 8px;">Critical · Float: 0</span></div>
         <div style="margin-top: 20px; display: flex; gap: 16px;">
           <span style="font-size: 9px; display: flex; align-items: center; gap: 4px;"><span style="width: 8px; height: 8px; background: #10b981; display: inline-block;"></span> Complete</span>
           <span style="font-size: 9px; display: flex; align-items: center; gap: 4px;"><span style="width: 8px; height: 8px; background: #ef4444; display: inline-block;"></span> Critical Path</span>
-          <span style="font-size: 9px; display: flex; align-items: center; gap: 4px;"><span style="width: 8px; height: 8px; background: #334155; display: inline-block;"></span> Normal</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- COMPARISON TABLE -->
+  <!-- COMPLEMENTARY TABLE (OPTION A) - REPLACES COMPETITIVE COMPARISON -->
   <div class="compare-wrap-landing">
-    <div class="compare-inner">
+    <div class="complementary-table">
+      <h3>How Obxiplan fits with your workflow</h3>
       <table>
         <thead>
-          <tr>
-            <th>Feature</th>
-            <th style="color: #ef4444;">Nexotus Obxiplan</th>
-            <th>MS Project</th>
-            <th>Primavera P6</th>
-            <th>Excel</th>
-          </tr>
+          <tr><th>What you already use</th><th>What Obxiplan adds</th></tr>
         </thead>
         <tbody>
-          <tr><td>WBS Hierarchy</td><td style="color: #ef4444;"><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="cross">—</span></td></tr>
-          <tr><td>CPM / Critical Path</td><td style="color: #ef4444;"><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="cross">—</span></td></tr>
-          <tr><td>Gantt Chart</td><td style="color: #ef4444;"><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="cross">Manual</span></td></tr>
-          <tr><td>Cost Variance Tracking</td><td style="color: #ef4444;"><span class="check">✓</span></td><td><span class="cross">Limited</span></td><td><span class="check">✓</span></td><td><span class="cross">Manual</span></td></tr>
-          <tr><td>Consultant Toolkit</td><td style="color: #ef4444;"><span class="check">✓ Coming</span></td><td><span class="cross">—</span></td><td><span class="cross">—</span></td><td><span class="cross">—</span></td></tr>
-          <tr><td>MS Project Export</td><td style="color: #ef4444;"><span class="check">✓</span></td><td><span class="check">Native</span></td><td><span class="cross">Limited</span></td><td><span class="cross">—</span></td></tr>
-          <tr><td>Local Data (No Cloud)</td><td style="color: #ef4444;"><span class="check">✓</span></td><td><span class="cross">Optional</span></td><td><span class="cross">—</span></td><td><span class="check">✓</span></td></tr>
-          <tr><td>Annual License Cost</td><td style="color: #10b981; font-weight: 600;">FREE/TBD</td><td>~RM 1,500/yr</td><td>~RM 20,000+</td><td>~RM 600/yr</td></tr>
+          <tr><td>📊 Project schedules (XML files)</td><td>Open exported files on-site, review offline, send updates back</td></tr>
+          <tr><td>📝 Spreadsheets</td><td>Import task lists, visualize as Gantt, track costs visually</td></tr>
+          <tr><td>☁️ Cloud task tools</td><td>Local backup + offline access when internet is spotty</td></tr>
+          <tr><td>🆕 Nothing yet — starting fresh</td><td>Simple scheduling without setup fees or steep learning curve</td></tr>
         </tbody>
       </table>
+      <div class="table-footer">Obxiplan doesn't replace your existing tools. It fills the gaps — offline access, local data, quick field updates.</div>
     </div>
   </div>
 
   <!-- CTA SECTION -->
   <div class="cta-section-landing" id="cta">
     <div class="cta-inner">
-      <h2 style="font-family: 'Barlow Condensed', sans-serif; font-size: 32px; font-weight: 800; color: white; margin-bottom: 12px;">Built for the ground level.<br>Ready for the boardroom.</h2>
-      <p style="font-size: 15px; color: #9ca3af; margin-bottom: 28px;">Be among the first to try Nexotus Obxiplan — currently in active development.</p>
+      <h2 style="font-family: 'Barlow Condensed', sans-serif; font-size: 32px; font-weight: 800; color: white; margin-bottom: 12px;">Currently in active development</h2>
+      <p style="font-size: 15px; color: #9ca3af; margin-bottom: 28px;">Be among the first to try Obxiplan. Expect regular updates and a dev team that listens.</p>
       <a href="mailto:amaljerry95@gmail.com" class="btn-red" style="display: inline-flex; align-items: center; gap: 8px;">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
         Request Early Access
@@ -604,17 +615,11 @@
   <footer>
     <div class="container" style="max-width: 1280px; margin: 0 auto; padding: 0 24px;">
       <div class="footer-inner">
-        <span class="footer-logo">NEXOTUS <span>//</span> OBXIPLAN</span>
-        <span class="footer-copy">v3.0-beta · Kuching, Sarawak · 2026</span>
+        <span class="footer-logo">NEXOTUS // OBXIPLAN</span>
+        <span class="footer-copy">v3.0-beta · Kuching, Sarawak · 2026 — independent project controls tool</span>
       </div>
     </div>
   </footer>
-
-<script>
-  const toggle = document.getElementById("navToggle");
-  const links = document.getElementById("navLinks");
-  toggle.addEventListener("click", () => { toggle.classList.toggle("open"); links.classList.toggle("open"); });
-  links.querySelectorAll("a").forEach(a => { a.addEventListener("click", () => { toggle.classList.remove("open"); links.classList.remove("open"); }); });
-</script>
 </body>
 </html>
+```
