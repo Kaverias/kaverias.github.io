@@ -10,13 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    /* FULL DARK THEME RESTORED */
-    body {
-      background: #05070f;
-      margin: 0;
-      padding: 0;
-    }
-
+    /* additional hybrid styles */
     .hero-hybrid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -42,7 +36,7 @@
       font-weight: 900;
       letter-spacing: -0.02em;
       line-height: 1.1;
-      color: #ffffff;
+      color: #110101;
       margin-bottom: 24px;
     }
     .hero-title .slash {
@@ -50,12 +44,12 @@
       font-size: 1.2em;
     }
     .hero-title .dim {
-      color: #9ca3af;
+      color: #6b7280;
       font-weight: 500;
     }
     .hero-sub {
       font-size: 16px;
-      color: #9ca3af;
+      color: #0b0d10;
       line-height: 1.65;
       margin-bottom: 32px;
       max-width: 90%;
@@ -68,7 +62,7 @@
     .btn-red {
       background: #ef4444;
       color: white;
-      padding: 12px 28px;
+      padding: 10px 26px;
       border-radius: 4px;
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 14px;
@@ -89,9 +83,9 @@
     }
     .btn-outline {
       background: transparent;
-      border: 1px solid #334155;
-      color: #e5e7eb;
-      padding: 12px 26px;
+      border: 1px solid #1e2642;
+      color: #030508;
+      padding: 10px 24px;
       border-radius: 4px;
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 14px;
@@ -362,9 +356,6 @@
       padding: 56px 48px;
       text-align: center;
     }
-    .cta-inner h2 {
-      color: white;
-    }
     .corner-mark {
       position: fixed;
       width: 40px;
@@ -412,14 +403,14 @@
       font-size: 11px;
       color: #6b7280;
     }
-    /* DARK NAVIGATION RESTORED WITH PROPER SPACING */
+    /* Original navigation styles */
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.2rem 2rem;
+      padding: 1rem 2rem;
       border-bottom: 1px solid #1e2642;
-      background: #0f1424;
+      background: #ffffff;
       position: relative;
     }
     .nav-logo {
@@ -427,7 +418,7 @@
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 1.4rem;
       text-decoration: none;
-      color: #ffffff;
+      color: #000;
     }
     .nav-logo-sep {
       color: #ef4444;
@@ -444,7 +435,7 @@
     .nav-toggle span {
       width: 24px;
       height: 2px;
-      background: #ffffff;
+      background: #000;
       transition: 0.2s;
     }
     .nav-links {
@@ -456,12 +447,10 @@
     }
     .nav-links a {
       text-decoration: none;
-      color: #e5e7eb;
+      color: #333;
       font-weight: 500;
       font-family: 'Barlow', sans-serif;
-      transition: color 0.2s;
     }
-    .nav-links a:hover,
     .nav-links a.active {
       color: #ef4444;
     }
@@ -469,11 +458,6 @@
       font-family: 'Share Tech Mono', monospace;
       font-size: 0.7rem;
       color: #10b981;
-      background: #0a0e1a;
-      padding: 6px 12px;
-      border: 1px solid #1e2642;
-      border-radius: 4px;
-      letter-spacing: 0.5px;
     }
     @media (max-width: 768px) {
       .nav-toggle {
@@ -485,7 +469,7 @@
         top: 100%;
         left: 0;
         right: 0;
-        background: #0f1424;
+        background: #ffffff;
         flex-direction: column;
         padding: 1rem 2rem;
         border-bottom: 1px solid #1e2642;
@@ -508,13 +492,13 @@
 </head>
 <body>
 
-  <!-- Corner marks -->
+  <!-- Corner marks (restored) -->
   <div class="corner-mark tl"></div>
   <div class="corner-mark tr"></div>
   <div class="corner-mark bl"></div>
   <div class="corner-mark br"></div>
 
-  <!-- Navbar DARK restored -->
+  <!-- Navbar Nexotus style (FULLY RESTORED with hamburger) -->
   <nav>
     <a href="index.html" class="nav-logo">NEXOTUS <span class="nav-logo-sep">//</span> OPS</a>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
@@ -528,12 +512,12 @@
     <span class="nav-status">SYSTEM ONLINE</span>
   </nav>
 
-  <!-- HERO HYBRID (DARK CONTENT, HUMBLE COPY) -->
+  <!-- HERO HYBRID (TONED DOWN CONTENT, SAME STRUCTURE) -->
   <div class="hero-hybrid">
     <div class="hero-left">
       <p class="hero-kicker fade-up d1">Nexotus Obxiplan · Project Controls</p>
       <h1 class="hero-title fade-up d2">
-        <span style="color: #ffffff;">OBXI</span><span style="color: #dd0a0a;">PLAN</span>
+        <span style="color: #000000;">OBXI</span><span style="color: #dd0a0a;">PLAN</span>
         <span class="slash">//</span><br>
         <span class="dim">straightforward scheduling</span><br>
         for consultants & contractors.
@@ -595,8 +579,8 @@
   <!-- FEATURES SECTION -->
   <section id="features" style="max-width: 960px; margin: 0 auto 40px; padding: 0 40px;">
     <p style="font-family: 'Share Tech Mono', monospace; font-size: 25px; color: #ef4444; margin-bottom: 12px; font-weight: 800; text-align: center;">[  CORE FEATURES  ]</p>
-    <h2 style="font-family: 'Barlow Condensed', sans-serif; font-size: clamp(28px, 4vw, 38px); font-weight: 800; text-align: center; color: #ffffff; margin-bottom: 16px;">Everything a project professional needs</h2>
-    <p style="font-size: 15px; color: #9ca3af; text-align: center; max-width: 560px; margin: 0 auto 48px;">Built from the ground up for real project workflows — not adapted from generic task managers.</p>
+    <h2 style="font-family: 'Barlow Condensed', sans-serif; font-size: clamp(28px, 4vw, 38px); font-weight: 800; text-align: center; color: rgb(11, 11, 11); margin-bottom: 16px;">Everything a project professional needs</h2>
+    <p style="font-size: 15px; color: #484a4e; text-align: center; max-width: 560px; margin: 0 auto 48px;">Built from the ground up for real project workflows — not adapted from generic task managers.</p>
   </section>
 
   <div class="features-grid-landing">
@@ -608,7 +592,7 @@
     <div class="feature-card-landing"><div class="feature-icon-landing"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div class="feature-title-landing">XML Exchange</div><div class="feature-desc-landing">Export or import XML to work with common scheduling tools.</div></div>
   </div>
 
-  <!-- CPM HIGHLIGHT -->
+  <!-- CPM HIGHLIGHT (TONED DOWN) -->
   <div class="highlight-landing">
     <div class="highlight-inner">
       <div>
@@ -677,6 +661,7 @@
     </div>
   </footer>
 
+  <!-- ORIGINAL JAVASCRIPT (RESTORED) -->
   <script>
     const toggle = document.getElementById("navToggle");
     const links = document.getElementById("navLinks");
